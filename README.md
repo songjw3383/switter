@@ -108,3 +108,21 @@ const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
 * 구글과 깃허브 로그인 구현하기
 - signingWithPopup : provider를 만들고 provider로 로그인 해야한다.
 - 여기선 onSocialClick 이라는 함수를 만들고 깃헙과 구글 버튼에 함수를 부여, 또한 구글이나 깃헙일때 provider = new firebaseInstance.auth.(google or git) 를 실행.
+
+* Home 에선 기본적으로 tweet을 쓸 수 있는 형태로 작성해야함.
+- Navigation.js 생성후 <Router> 상단에 로그인되어있는 사람만 Navigation을 볼수 있게 만듬
+> {isLoggedIn && <Navigation />}
+- 또한 Navigation.js 에서 home/profile 목록과 경로설정을 해주었다. 또한 routes에 profile을 가는 경로를 작성 
+- 그리고 Profile에서 로그아웃을 하기위한 버튼을 생성
+- 로그아웃을 누르고 home으로 가기위한 방법은 **Redirect** 와 useHistory() 두가지 방법이 있다.
+1. Redirect는 경로가 다른곳으로 가면 무조건 home으로 가게 하는 것
+2. useHistroy() 는 특정 행동을 하면 그 행동에만 home으로 가게하는것
+> 여기선 useHistory()를 사용하여 로그아웃 버튼을 눌렀을 때만 home으로 가게 설정하였다
+
+```
+const history = useHistory();
+    const onLogOutClick =() => {
+        authService.signOut();
+        history.push("/");
+    };
+```
