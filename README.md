@@ -69,3 +69,19 @@
 > 로그인이 되면 Home 화면을 보게 하고, 로그인이 되지 않은 상태일땐 Auth 화면을 띄우게 만든다
 
 **Fragment? -> <> </> 로 감싸주는걸 말하며 많은 routes를 보내주고 싶을때 쓴다.**
+
+### 2. AUTHENTICATION
+- Auth 를 사용하기 위해서는 import를 해야한다.
+> import "firebase/auth"
+- user 로그인 여부는 authService.currentUser 를 사용한다
+> 기본적으로 currentUser은 User | null 을 반환하게 된다.
+```
+const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
+```
+- jsconfig.json 세팅으로 import { authService } from "fbase" 이런식으로 import 해줄 수 있다.
+
+- Firebase 에서 sign-in method 를 세팅해준다 ( 이메일/패스워드 , 깃허브, 구글)
+
+* email, password form 작성
+- onchange는 값을 적을때 마다 실행되는 함수이다. (email/password)
+- target 이 변경이 일어난 부분이다. name은 name이고 value는 키보드를 통해 입력
