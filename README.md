@@ -82,6 +82,29 @@ const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
 
 - Firebase 에서 sign-in method 를 세팅해준다 ( 이메일/패스워드 , 깃허브, 구글)
 
-* email, password form 작성
+** email, password form 작성 **
 - onchange는 값을 적을때 마다 실행되는 함수이다. (email/password)
 - target 이 변경이 일어난 부분이다. name은 name이고 value는 키보드를 통해 입력
+- name 과 email 이 같은 경우 state인 email을 변경, 그 외에 경우 state인 password를 변경하게 된다. 이때 키보드를 통해 입력되는 value 값이 사용되는 것이다.
+- onSubmit에선 preventDefault를 사용하여 새로고침을 방지
+
+- Email auth provider -> createWithEmailAndPassword 는 이메일주소와 패스워드로 연결된 새로운 유저 계정 만들기
+> 만약 newAccount 가 true 일시 새로운 계정을 만들기 위해 사용, 또한 promise를 주는데 이건 await을 써야한다는 의미
+- Email auth provider => signInWithEmailAndPassword // 이미 계정이 있는경우
+
+* persistance
+- 나의 사용자들을 어떻게 기억할 것인지 선택할 수 있도록 해준다.
+1. local(default) : 브라우저를 닫더라도 사용자 정보는 기억될 것이라는 의미 --> 이것을 사용
+2. session : 브라우저가 열려 있는 동안만 기억됨
+3. none : 새로고침하면 로그아웃됨.
+
+* onAuthStateChanged
+- 사용자의 로그인 상태의 변화를 관찰하는 관찰자를 추가시킴, 의미는 기본적으로 event listener이고 변화가 있을때 변경을 감지한다.
+
+* error에 대한 useState를 만듬으로써 error 메세지 출력을 해준다
+
+* toggle을 사용함으로써 sign in 과 create Account 를 구별 해준다.
+
+* 구글과 깃허브 로그인 구현하기
+- signingWithPopup : provider를 만들고 provider로 로그인 해야한다.
+- 여기선 onSocialClick 이라는 함수를 만들고 깃헙과 구글 버튼에 함수를 부여, 또한 구글이나 깃헙일때 provider = new firebaseInstance.auth.(google or git) 를 실행.
