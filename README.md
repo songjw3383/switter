@@ -149,4 +149,23 @@ const history = useHistory();
 
 * 트윗한 사람이 누군지 알기위한 방법
 - App.js 에서는 authenticate를 다루기 때문에 여기서 수정하였다.
-- 로그인 하게 되면 onAuthStateChanged가 호출되고 로그인한 user를 받게된다. 이 user는 어디서든 사용하기위해 저장 -> AppRouter로 이동
+- 로그인 하게 되면 onAuthStateChanged가 호출되고 로그인한 user를 받게된다. 이 user는 어디서든 사용하기위해 저장 -> AppRouter로 이동 -> Home.js prop으로 이동
+- userObj.uid 로부터 사용자 uid를 얻어오게 하면된다.
+
+* 실시간(realtime) 으로 만드는 방법
+- onsnapshot 사용 (listener이다) : 실시간의 변화를 감지한다.
+- 그리고 snapshot의 정보를 map을 이용하여 새로운 컴포넌트인 Sweet component를 만든다. 기본적으로 sweetObj와 isOwner를 가지는데, sweetObj는 sweet의 모든 데이터이다.
+
+* 트윗을 삭제하고 등록하는 방법
+- Sweet.js 를 생성후 sweetObj 와 isOwner를 가져오며 export 해준다. 
+- 또한 트윗을 누군가 작성했는지 여부를 home.js 에서 isOwner을 사용하여 sweet.creatorId 와 userObj.uid 의 일치여부에 따라 판단하게 한다. 일치하게되면 true
+
+** 삭제 **
+- onDeleteClick 함수 생성후 confirm 으로 확인메세지 작성(const ok)
+- 그리고 확인을 누를시 true를 반환 -> dbService.doc() 사용, 빈칸은 path가 된다.
+
+** 수정 **
+- [editing, setEditing] 은 편집 모드를 위한 state이며 false값을 가진다
+- [newSweet, setNewSweet] 은 text 입력을 업데이트 해주기 위한 state이며 sweetObj의 text를 가진다.
+- 그리고 삭제와 똑같이 dbService.doc() 를 사용하고 .update를 사용. update의 값은 newSweet의 text를 가지게 된다 -> newSweet은 input된 text를 의미(새로 수정된 text)
+- 
