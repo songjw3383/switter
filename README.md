@@ -149,4 +149,8 @@ const history = useHistory();
 
 * 트윗한 사람이 누군지 알기위한 방법
 - App.js 에서는 authenticate를 다루기 때문에 여기서 수정하였다.
-- 로그인 하게 되면 onAuthStateChanged가 호출되고 로그인한 user를 받게된다. 이 user는 어디서든 사용하기위해 저장 -> AppRouter로 이동
+- 로그인 하게 되면 onAuthStateChanged가 호출되고 로그인한 user를 받게된다. 이 user는 어디서든 사용하기위해 저장 -> AppRouter로 이동 -> Home.js prop으로 이동
+- userObj.uid 로부터 사용자 uid를 얻어오게 하면된다.
+
+* 실시간(realtime) 으로 만드는 방법
+- onsnapshot 사용 (listener이다) : 실시간의 변화를 감지한다.
