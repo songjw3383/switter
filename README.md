@@ -139,18 +139,20 @@ const history = useHistory();
 > Collection 안에 Document 가 있다고 생각하면 됨. 
 
 * 코드내에서 collection 추가 및 document 생성
-- 먼저 fbase.js 에서 import를 위에 처럼 해주고, dbService라고 이름을 정해준뒤, firestore를 export 해준다.
-- Home.js 에서는 submit(onSubmit) 할때 마다 document를 생성하게 되는데, .add를 사용하여 데이터 sweets collection에 대한 document 내용을 추가하도록 설정해준다.
+먼저 fbase.js 에서 import를 위에 처럼 해주고, dbService라고 이름을 정해준뒤, firestore를 export 해준다.
+Home.js 에서는 submit(onSubmit) 할때 마다 document를 생성하게 되는데, .add를 사용하여 데이터 sweets collection에 대한 document 내용을 추가하도록 설정해준다.
 
 * 트윗들을 가져오는 방법
-- state를 생성, 시작할때 dbService 에 대한 정보를 getSweets의 dbService.get 으로부터 받아오도록한다(async~ await)
-- 기본적으로 .get은 QuerySnapshot을 가져오는데, QuerySnapshot 중 .forEach로 트윗 data를 받아오도록 한다.
-- 그리고 setSweets은 배열을 리턴하게 되는데, 첫번째 요소는 가장최근의 document이고, 두번째 요소는 그 이전의 document로 설정한다. 
+state를 생성, 시작할때 dbService 에 대한 정보를 getSweets의 dbService.get 으로부터 받아오도록한다(async~ await)
+기본적으로 .get은 QuerySnapshot을 가져오는데, QuerySnapshot 중 .forEach로 트윗 data를 받아오도록 한다.
+그리고 setSweets은 배열을 리턴하게 되는데, 첫번째 요소는 가장최근의 document이고, 두번째 요소는 그 이전의 document로 설정한다. 
 
 * 트윗한 사람이 누군지 알기위한 방법
-- App.js 에서는 authenticate를 다루기 때문에 여기서 수정하였다.
-- 로그인 하게 되면 onAuthStateChanged가 호출되고 로그인한 user를 받게된다. 이 user는 어디서든 사용하기위해 저장 -> AppRouter로 이동 -> Home.js prop으로 이동
-- userObj.uid 로부터 사용자 uid를 얻어오게 하면된다.
+App.js 에서는 authenticate를 다루기 때문에 여기서 수정하였다.
+로그인 하게 되면 onAuthStateChanged가 호출되고 로그인한 user를 받게된다. 이 user는 어디서든 사용하기위해 저장 -> AppRouter로 이동 -> Home.js prop으로 이동
+userObj.uid 로부터 사용자 uid를 얻어오게 하면된다.
 
 * 실시간(realtime) 으로 만드는 방법
-- onsnapshot 사용 (listener이다) : 실시간의 변화를 감지한다.
+onsnapshot 사용 (listener이다) : 실시간의 변화를 감지한다.
+
+* 트윗을 삭제하고 등록하는 방법
