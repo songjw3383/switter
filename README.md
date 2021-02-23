@@ -181,3 +181,15 @@ const history = useHistory();
 - newSweet과 setNewSweet은 input값을 수정할 수 있다.
 - 그리고 editing 에는 많은 조건들이 존재
 
+### 4.FILE UPLOAD
+- 파일 미리보기 구현
+1. 파일을 불러오기 위한 form을 작성하고, 이미지 미리보기를 하기위하여 onFileChange 함수를 생성하고, event.taget.files 로 파일 정보를 갱신
+2. fileReader API 사용 : 말 그대로 파일 이름을 읽는 것, 파일을 갖고 reader(=> fileReader())을 만든 다음 readAsDataURL 을 사용하여 파일을 읽는 것
+3. attachment와 setAttachment로 이미지가 첨부되었을때 미리보기를 가능하게 하고, 미리보기 사진을 지우수있는 clear를 구현
+
+- Firebase 스토리지 사용 및 파일 업로드
+1. firbase/storage를 import 후 storageService 이름으로 export,
+2. storageService.ref().child 를 사용, child의 기본적 인자는 이미지의 path, 그리고 어떤 특별한 식별자를 랜덤으로 생성해주는 uuid를 설치
+> npm install uuid
+3. putString을 사용하여 추가된 파일을 ref()라는 공간에 넣는다.
+> putString은 data 와 데이터의 형식을 요구, 여기서 data는 attachment의 string 그리고 format은 data_url
