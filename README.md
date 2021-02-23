@@ -160,12 +160,24 @@ const history = useHistory();
 - Sweet.js 를 생성후 sweetObj 와 isOwner를 가져오며 export 해준다. 
 - 또한 트윗을 누군가 작성했는지 여부를 home.js 에서 isOwner을 사용하여 sweet.creatorId 와 userObj.uid 의 일치여부에 따라 판단하게 한다. 일치하게되면 true
 
-** 삭제 **
+**삭제**
 - onDeleteClick 함수 생성후 confirm 으로 확인메세지 작성(const ok)
 - 그리고 확인을 누를시 true를 반환 -> dbService.doc() 사용, 빈칸은 path가 된다.
 
-** 수정 **
+**수정**
 - [editing, setEditing] 은 편집 모드를 위한 state이며 false값을 가진다
 - [newSweet, setNewSweet] 은 text 입력을 업데이트 해주기 위한 state이며 sweetObj의 text를 가진다.
 - 그리고 삭제와 똑같이 dbService.doc() 를 사용하고 .update를 사용. update의 값은 newSweet의 text를 가지게 된다 -> newSweet은 input된 text를 의미(새로 수정된 text)
-- 
+
+**Recap**
+1. Home에서 listener로 snapshot을 이용 -> 변화를 감지하고 알림을 받음 (여기선 sweets 컬렉션에 대한 정보를 array에 담고 state 배열에 집어넣는다(setSweets(sweetArray))
+2. map을 이용하고 Sweet component를 만든다. 그리고 두개의 prop을 가지는데 첫번째는 sweetObj 두번째는 isOwner을 받는다
+- sweetObj는 sweet의 모든 데이터, isOwner은 기본적으로 true와 false를 갖는데 sweet을 만든사람(sweet.creatorId)와 userObj.uid가 같으면 true를 갖는다.
+- userObj.uid 는 App으로 부터 얻는다.
+3. App.js는 기본적으로 init, isLoggedIn, userObj 세개의 state를 갖는다.
+- init은 기본적으로 true -> 왜냐하면 어플리케이션이 언제 시작해도 onAuthStateChanged가 실행돼야 하기때문, 그리하여 로그인돼야만 user정보를 가져올수 있기때문에 Home의 isOwner에서 userObj를 사용할 수 있는 것이다.
+4. Sweet.js는 기본적으로 editing과 newSweet 두개의 state를 갖는다.
+- editing은 기본적으로 sweet을 수정하고 있는지 아닌지를 뜻함
+- newSweet과 setNewSweet은 input값을 수정할 수 있다.
+- 그리고 editing 에는 많은 조건들이 존재
+
