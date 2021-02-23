@@ -193,3 +193,11 @@ const history = useHistory();
 > npm install uuid
 3. putString을 사용하여 추가된 파일을 ref()라는 공간에 넣는다.
 > putString은 data 와 데이터의 형식을 요구, 여기서 data는 attachment의 string 그리고 format은 data_url
+4. file의 url을 가져오기 위해 reference.ref.getDownloadURL 사용
+5. 마지막으로 sweet에 첨부된 이미지를 보여주기위한 코드 작성
+> {sweetObj.attachmentUrl && <img src={sweetObj.attachmentUrl} width="50px" height="50px" />}
+
+- 파일 삭제 방법
+1. attachmentUrl 을 refFromURL 에 넘기면 그 object에 대한 reference 를 얻을 수 있다. 삭제 또한 가능
+2. refFromURL.delete() 를 사용하여 삭제
+> await storageService.refFromURL(sweetObj.attachmentUrl).delete();
