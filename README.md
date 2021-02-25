@@ -201,3 +201,18 @@ const history = useHistory();
 1. attachmentUrl 을 refFromURL 에 넘기면 그 object에 대한 reference 를 얻을 수 있다. 삭제 또한 가능
 2. refFromURL.delete() 를 사용하여 삭제
 > await storageService.refFromURL(sweetObj.attachmentUrl).delete();
+
+### 5.EDIT PROFILE
+- Sweet을 받아오는 방법
+1. getMySweets 만들고 useEffect() 작성
+2. Router로 부터 userObj를 얻어 Profile.js에 prop형식으로 받아오게 한다. 
+3. 그리고 await dbService.collection.where 로 필터링을 한후 .get으로 받아오게한다. (creatorid 가 userObj.uid 와 같은지에 대하여)
+> 또한 firestore에선 .where 와 .orderBy를 사용하기 위해 pre-made query를 만들어줘야함 -> index 생성필요(in firestore)
+
+- profile 을 로그인한 사람의 이름으로 바꾸는 방법
+1. form(onchange,onsubmit) 작성 후 userObj.updateProfile() 사용
+
+- 프로필 이름 업데이트 후 자동으로 바뀌게 하는 방법 (새로고침 x)
+1. App.js 에서 const refreshUser 함수 작성
+2. refreshUser 함수내에서 setUserObj 전체 내용이 아닌 일부 내용만을 가져오게하고 updateProfile 함수를 작성
+> 인자는 arg, Profile.js -> onSubmit -> userObj.updateProfile({displayName : newDisplayName,}); 을 의미
