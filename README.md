@@ -216,3 +216,8 @@ const history = useHistory();
 1. App.js 에서 const refreshUser 함수 작성
 2. refreshUser 함수내에서 setUserObj 전체 내용이 아닌 일부 내용만을 가져오게하고 updateProfile 함수를 작성
 > 인자는 arg, Profile.js -> onSubmit -> userObj.updateProfile({displayName : newDisplayName,}); 을 의미
+
+### 6.FINISHING UP
+- Sweet 부분을 담당하는 sweetFactory.js 를 분리하여 작성
+- Auth.js 의 form 부분을 authFrom.js로 분리하여 작성
+- CSS 작업
