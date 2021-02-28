@@ -230,7 +230,7 @@ const history = useHistory();
 
 ### 7.CONCLUSTION
 <p align="left">
-<img src="https://user-images.githubusercontent.com/56250064/109417612-bda50380-7a07-11eb-82a9-205716e482f6.png" width="350" height="700">
-<img src="https://user-images.githubusercontent.com/56250064/109417614-bed63080-7a07-11eb-80aa-d02a8df8d2fa.png" width="350" height="700">
-<img src="https://user-images.githubusercontent.com/56250064/109417615-bed63080-7a07-11eb-823f-0ea39ae7fd8f.png" width="350" height="700">
+<img src="https://user-images.githubusercontent.com/56250064/109417612-bda50380-7a07-11eb-82a9-205716e482f6.png" width="300" height="700">
+<img src="https://user-images.githubusercontent.com/56250064/109417614-bed63080-7a07-11eb-80aa-d02a8df8d2fa.png" width="300" height="700">
+<img src="https://user-images.githubusercontent.com/56250064/109417615-bed63080-7a07-11eb-823f-0ea39ae7fd8f.png" width="300" height="700">
 </p>
