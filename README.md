@@ -221,3 +221,9 @@ const history = useHistory();
 - Sweet 부분을 담당하는 sweetFactory.js 를 분리하여 작성
 - Auth.js 의 form 부분을 authFrom.js로 분리하여 작성
 - CSS 작업
+- gh pages 를 이용한 배포작업
+> https://songjw3383.github.io/switter
+- firebase 보안 설정 -> 구글,깃허브 로그인 오류해결을 위해
+> Authentication -> Sign-in method -> 승인된 도메인에 **songjw3383.github.io** 추가, 규칙) allow read, write: if request.auth != null; 추가 (승인된 사람만 읽기,쓰기 허용)
+- https://console.developers.google.com/apis/credentials API 키 보안 강화
+> HTTP referres 및 1.songjw3383.github.io 2.localhost 3.switter-514d7.firebaseapp.com 3개 URL 추가
