@@ -228,7 +228,7 @@ const history = useHistory();
 - https://console.developers.google.com/apis/credentials API 키 보안 강화
 > HTTP referres 및 1.songjw3383.github.io 2.localhost 3.switter-514d7.firebaseapp.com 3개 URL 추가
 
-### 7.CONCLUSTION
+### 7.CONCLUSION
 <p align="left">
 <img src="https://user-images.githubusercontent.com/56250064/109417612-bda50380-7a07-11eb-82a9-205716e482f6.png" width="300" height="700">
 <img src="https://user-images.githubusercontent.com/56250064/109417614-bed63080-7a07-11eb-80aa-d02a8df8d2fa.png" width="300" height="700">
