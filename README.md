@@ -227,3 +227,8 @@ const history = useHistory();
 > Authentication -> Sign-in method -> 승인된 도메인에 **songjw3383.github.io** 추가, 규칙) allow read, write: if request.auth != null; 추가 (승인된 사람만 읽기,쓰기 허용)
 - https://console.developers.google.com/apis/credentials API 키 보안 강화
 > HTTP referres 및 1.songjw3383.github.io 2.localhost 3.switter-514d7.firebaseapp.com 3개 URL 추가
+
+### 7.CONCLUSTION
+<img src="https://user-images.githubusercontent.com/56250064/109417612-bda50380-7a07-11eb-82a9-205716e482f6.png" width="350" height="700">
+<img src="https://user-images.githubusercontent.com/56250064/109417614-bed63080-7a07-11eb-80aa-d02a8df8d2fa.png" width="350" height="700">
+<img src="https://user-images.githubusercontent.com/56250064/109417615-bed63080-7a07-11eb-823f-0ea39ae7fd8f.png" width="350" height="700">
